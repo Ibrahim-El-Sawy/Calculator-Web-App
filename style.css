@@ -1,0 +1,104 @@
+/* main color 
+1 => #171717
+2 => #398628
+3 => #ec382b 
+4 =>  rgb(1, 1, 1)
+*/
+
+* {
+    --mainColor: rgb(1, 1, 1);
+    --scandaryColor: #3d3d3d;
+    --textColor: #398628;
+    --basicWidth: 210px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+hr {
+    width: 195px;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    font-family: 'Gabarito', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Sometype Mono', monospace;
+}
+
+.parent {
+    margin: 10px 40%;
+}
+
+.parent .screen .input-screen {
+    background-color: var(--mainColor);
+    height: 50px;
+    color: white;
+    padding: 5px;
+    width: var(--basicWidth);
+    border: var(--scandaryColor) solid 3px;
+    display: flex;
+}
+
+.parent .screen .output-screen {
+    display: block;
+    background-color: var(--mainColor);
+    height: 40px;
+    color: white;
+    padding: 5px;
+    width: var(--basicWidth);
+}
+
+.parent .numbers {
+    width: var(--basicWidth);
+    height: 100%;
+    padding: 2.5px;
+    background-color: var(--mainColor);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.parent .numbers option,
+.parent button {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    border-radius: 50%;
+    background-color: var(--scandaryColor);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 2.5px;
+}
+
+.parent button {
+    background-color: var(--textColor);
+    border: none;
+}
+
+.parent .numbers option:hover,
+.parent button:hover {
+    opacity: .8;
+}
+
+.parent #minus,
+#plus,
+#divided,
+#multiplied {
+    color: var(--textColor);
+    font-weight: bold;
+}
+
+.parent .numbers #delete {
+    font-size: 16px;
+    color: red;
+}
+
+.parent .numbers #equal {
+    flex-grow: 1;
+    border-radius: 5px;
+    order: 55;
+}
