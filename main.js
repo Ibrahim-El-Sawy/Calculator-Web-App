@@ -1,14 +1,14 @@
 // Screens 
-var outputScreen = document.querySelector(".output-screen")
-var inputScreen = document.querySelector("#input-screen")
-var n = document.querySelector(".numbers")
-    // Get Option Numbers
-var numbers = Array.from(document.querySelectorAll(".numbers option"))
-var NumberOfOption = numbers.length
+var outputScreen = document.querySelector(".output-screen");
+var inputScreen = document.querySelector("#input-screen");
+var n = document.querySelector(".numbers");
+// Get Option Numbers
+var numbers = Array.from(document.querySelectorAll(".numbers option"));
+var NumberOfOption = numbers.length;
 
 
 
-buttonValue()
+buttonValue();
 
 // Function to display The Numbers And Operators
 function buttonValue() {
@@ -32,36 +32,35 @@ function buttonValue() {
     numbers[14].onclick = responseButton;
 
     function responseButton() {
-        let char = ["+", "-", "*", "/", "."]
+        let char = ["+", "-", "*", "/", "."];
         if (char.includes(this.textContent)) {
             if (inputScreen.textContent.length != 21 && inputScreen.textContent.length < 21) {
                 if (inputScreen.textContent[inputScreen.textContent.length - 1] != this.textContent && char.includes(inputScreen.textContent[inputScreen.textContent.length - 1]) == false) {
                     var text = document.createTextNode(`${this.textContent}`)
-                    inputScreen.appendChild(text)
+                    inputScreen.appendChild(text);
                 }
             }
 
         } else {
             if (inputScreen.textContent.length != 21 && inputScreen.textContent.length < 21) {
-                var text = document.createTextNode(`${this.textContent}`)
-                inputScreen.appendChild(text)
+                var text = document.createTextNode(`${this.textContent}`);
+                inputScreen.appendChild(text);
             }
         }
     }
 }
 
 
-var delet = document.querySelector("#delete")
-var eqaul = document.querySelector("#equal")
+var delet = document.querySelector("#delete");
+var eqaul = document.querySelector("#equal");
 
 eqaul.onclick = result;
 delet.onclick = DeletAll;
 
 function result() {
     removeElementOutput()
-    var d = document.createTextNode(inputScreen.textContent)
-    outputScreen.appendChild(d)
-    theOperation();
+    var d = document.createTextNode(`${theOperation()}`);
+    outputScreen.appendChild(d);
 }
 
 function removeElementOutput() {
@@ -75,17 +74,10 @@ function DeletAll() {
 
 
 function theOperation() {
-    var str = inputScreen.textContent;
-    var ar = [];
-    console.log(str.split(""))
-    str.split("").forEach(element => {
-        let symbol = [`-`, `+`, "-", "*", "."];
-        ar.push(Number(element))
-            // if (symbol.includes(element) == false) {
-            //     ar.push(Number(element))
-            // } else {
-            //     ar.push(element)
-            // }
-    });
-    console.log(ar.join())
+    return eval(inputScreen.textContent);
+}
+inputScreen.onkeypress = function keyEqaultheOperation(event) {
+    if (event.keyCode === 61) {
+        result()
+    }
 }
