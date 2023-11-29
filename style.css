@@ -2,7 +2,7 @@
     --mainColor: rgb(1, 1, 1);
     --scandaryColor: #3d3d3d;
     --textColor: #398628;
-    --basicWidth: 210px;
+    --basicWidth: 300px;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -25,14 +25,16 @@ body {
 
 .parent .screen .input-screen {
     background-color: var(--mainColor);
-    height: 50px;
+    height: 80px;
     color: white;
-    padding: 5px;
+    padding: 2.5px;
+    padding-top: 15px;
     width: var(--basicWidth);
     border: var(--scandaryColor) solid 3px;
     display: flex;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+    font-size: 25px;
 }
 
 .input-screen::selection {
@@ -42,9 +44,10 @@ body {
 .parent .screen .output-screen {
     display: block;
     background-color: var(--mainColor);
-    height: 40px;
+    height: 35px;
     color: white;
     padding: 5px;
+    font-size: 25px;
     width: var(--basicWidth);
 }
 
@@ -62,8 +65,8 @@ body {
 
 .parent .numbers option,
 .parent button {
-    width: 60px;
-    height: 60px;
+    width: 85px;
+    height: 85px;
     display: flex;
     border-radius: 50%;
     background-color: var(--scandaryColor);
@@ -72,7 +75,8 @@ body {
     align-items: center;
     font-size: 22px;
     cursor: pointer;
-    margin: 2.5px;
+    margin: 5px;
+    font-size: 30px;
 }
 
 .parent button {
@@ -106,4 +110,8 @@ body {
 
 ::selection {
     background-color: transparent;
+}
+
+.opacity {
+    opacity: .7;
 }

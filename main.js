@@ -34,21 +34,21 @@ function buttonValue() {
     function responseButton() {
         let char = ["+", "-", "*", "/", "."];
         if (char.includes(this.textContent)) {
-            if (inputScreen.textContent.length != 21 && inputScreen.textContent.length < 21) {
+            if (inputScreen.textContent.length != 20 && inputScreen.textContent.length < 20) {
                 if (inputScreen.textContent[inputScreen.textContent.length - 1] != this.textContent && char.includes(inputScreen.textContent[inputScreen.textContent.length - 1]) == false) {
                     var text = document.createTextNode(`${this.textContent}`)
                     inputScreen.appendChild(text);
-                }
+                };
             }
 
         } else {
-            if (inputScreen.textContent.length != 21 && inputScreen.textContent.length < 21) {
+            if (inputScreen.textContent.length != 20 && inputScreen.textContent.length < 20) {
                 var text = document.createTextNode(`${this.textContent}`);
                 inputScreen.appendChild(text);
             }
         }
-    }
-}
+    };
+};
 
 
 var delet = document.querySelector("#delete");
@@ -61,23 +61,38 @@ function result() {
     removeElementOutput()
     var d = document.createTextNode(`${theOperation()}`);
     outputScreen.appendChild(d);
-}
+};
 
 function removeElementOutput() {
     outputScreen.textContent = "";
-}
+};
 
 function DeletAll() {
     inputScreen.textContent = "";
     outputScreen.textContent = "";
-}
+};
 
 
 function theOperation() {
     return eval(inputScreen.textContent);
-}
+};
 inputScreen.onkeypress = function keyEqaultheOperation(event) {
     if (event.keyCode === 61) {
-        result()
-    }
-}
+        result();
+        inputScreen.setAttribute('contenteditable', 'false');
+        eqaul.classList.toggle("opacity");
+        setTimeout(() => {
+            eqaul.classList.toggle("opacity")
+        }, 250);
+    };
+
+
+    if (inputScreen.textContent.length === 20) {
+        inputScreen.setAttribute('contenteditable', 'false');
+    };
+};
+
+
+inputScreen.onclick = function() {
+    inputScreen.setAttribute('contenteditable', 'true');
+};
