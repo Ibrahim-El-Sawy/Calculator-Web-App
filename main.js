@@ -34,7 +34,7 @@ function buttonValue() {
     function responseButton() {
         let char = ["+", "-", "*", "/", "."];
         if (char.includes(this.textContent)) {
-            if (inputScreen.textContent.length != 20 && inputScreen.textContent.length < 20) {
+            if (inputScreen.textContent.length != 16 && inputScreen.textContent.length < 16) {
                 if (inputScreen.textContent[inputScreen.textContent.length - 1] != this.textContent && char.includes(inputScreen.textContent[inputScreen.textContent.length - 1]) == false) {
                     var text = document.createTextNode(`${this.textContent}`)
                     inputScreen.appendChild(text);
@@ -42,7 +42,7 @@ function buttonValue() {
             }
 
         } else {
-            if (inputScreen.textContent.length != 20 && inputScreen.textContent.length < 20) {
+            if (inputScreen.textContent.length != 16 && inputScreen.textContent.length < 16) {
                 var text = document.createTextNode(`${this.textContent}`);
                 inputScreen.appendChild(text);
             }
@@ -59,8 +59,8 @@ delet.onclick = DeletAll;
 
 function result() {
     removeElementOutput()
-    var d = document.createTextNode(`${theOperation()}`);
-    outputScreen.appendChild(d);
+    var oparetion_reslt = document.createTextNode(`${theOperation()}`);
+    outputScreen.appendChild(oparetion_reslt);
 };
 
 function removeElementOutput() {
@@ -76,23 +76,68 @@ function DeletAll() {
 function theOperation() {
     return eval(inputScreen.textContent);
 };
+
 inputScreen.onkeypress = function keyEqaultheOperation(event) {
-    if (event.keyCode === 61) {
+    if (inputScreen.textContent.length === 16) {
+        inputScreen.setAttribute('contenteditable', 'false');
+    };
+
+
+    if (event.keyCode === 61 || event.keyCode === 13) {
         result();
         inputScreen.setAttribute('contenteditable', 'false');
         eqaul.classList.toggle("opacity");
         setTimeout(() => {
             eqaul.classList.toggle("opacity")
         }, 250);
-    };
+    } else if (event.keyCode === 46) {
+        numbers[numbers.length - 1].classList.toggle("opacity");
+        setTimeout(() => {
+            numbers[numbers.length - 1].classList.toggle("opacity")
+        }, 250);
+    } else if (event.keyCode === 45) {
+        numbers[11].classList.toggle("opacity");
+        setTimeout(() => {
+            numbers[11].classList.toggle("opacity")
+        }, 250);
+    } else if (event.keyCode === 43) {
+        numbers[10].classList.toggle("opacity");
+        setTimeout(() => {
+            numbers[10].classList.toggle("opacity")
+        }, 250);
+    } else if (event.keyCode === 47) {
+        numbers[12].classList.toggle("opacity");
+        setTimeout(() => {
+            numbers[12].classList.toggle("opacity")
+        }, 250);
+    } else if (event.keyCode === 42) {
+        numbers[13].classList.toggle("opacity");
+        setTimeout(() => {
+            numbers[13].classList.toggle("opacity")
+        }, 250);
+    } else if (event.keyCode === 48) {
+        numbers[9].classList.toggle("opacity");
+        setTimeout(() => {
+            numbers[9].classList.toggle("opacity")
+        }, 250);
+    }
 
 
-    if (inputScreen.textContent.length === 20) {
-        inputScreen.setAttribute('contenteditable', 'false');
-    };
-};
+
+    for (let n = 0; n < 10; n++) {
+        if (event.keyCode === (49 + n)) {
+            numbers[n].classList.toggle("opacity");
+            setTimeout(() => {
+                numbers[n].classList.toggle("opacity")
+            }, 250);
+        }
+    }
 
 
+}
+
+
+// return clickabale to input screen
 inputScreen.onclick = function() {
     inputScreen.setAttribute('contenteditable', 'true');
 };
